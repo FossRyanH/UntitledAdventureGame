@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStateMachine : StateMachine
 {
     #region Inputs
+    [field: SerializeField] public PlayerControlChannelSO PlayerControls {get; private set; }
     #endregion
 
     #region Components
@@ -13,6 +14,7 @@ public class PlayerStateMachine : StateMachine
 
     #region States
     public PlayerIdleState IdleState { get; private set; }
+    public PlayerMoveState MoveState { get; private set; }
     #endregion
 
     #region Misc
@@ -27,5 +29,6 @@ public class PlayerStateMachine : StateMachine
     void Awake()
     {
         Rb2D = GetComponent<Rigidbody2D>();
+        Initialize(IdleState);
     }
 }
