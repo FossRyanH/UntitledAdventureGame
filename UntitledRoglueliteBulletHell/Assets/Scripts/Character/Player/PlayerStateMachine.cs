@@ -10,6 +10,7 @@ public class PlayerStateMachine : StateMachine
 
     #region Components
     public Rigidbody2D Rb2D { get; private set; }
+    [field: SerializeField] public PlayerVariables playerVariables { get; set; }
     #endregion
 
     #region States

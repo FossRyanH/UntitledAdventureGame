@@ -12,6 +12,7 @@ public class PlayerMoveState : PlayerBaseState
     {
         base.Enter();
         Debug.Log($"{_player.name} is a moving");
+        _moveSpeed = _player.playerVariables.WalkSpeed;
     }
 
     public override void Update()
