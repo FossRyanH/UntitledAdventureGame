@@ -33,7 +33,7 @@ public class Statemachine : MonoBehaviour
         CurrentState.Update();
     }
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         CurrentState.PhysicsUpdate();
     }
