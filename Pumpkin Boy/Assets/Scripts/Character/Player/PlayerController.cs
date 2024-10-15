@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : Statemachine
@@ -20,6 +21,7 @@ public class PlayerController : Statemachine
     
     #region Misc
     public Vector2 InputDir { get; set; }
+    public Vector2 MouseDir { get; set; }
     #endregion
 
     public PlayerController()

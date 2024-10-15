@@ -53,11 +53,31 @@ public class PlayerBaseState : IState, IPlayerControlListener
         _player.Rb.velocity = movement * Time.fixedDeltaTime;
     }
 
-    protected void FaceDirection(Vector3 inputDirection)
+    protected void AimDirection()
     {
-        if (inputDirection.magnitude > Mathf.Epsilon)
+        var (success, position) = GetMousePos();
+
+        if (success)
         {
-            _player.transform.rotation = Quaternion.Lerp(_player.transform.rotation, Quaternion.LookRotation(inputDirection), 10f * Time.fixedDeltaTime);
+            var direction = position - _player.transform.position;
+
+            direction.y = 0f;
+            
+            _player.transform.forward = direction;
+        }
+    }
+
+    private (bool success, Vector3 position) GetMousePos()
+    {
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, LayerMask.GetMask("Ground")))
+        {
+            return (success: true, position: hitInfo.point);
+        }
+        else
+        {
+            return (success: false, position: Vector3.zero);
         }
     }
 }

@@ -16,11 +16,14 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Update()
     {
-        FaceDirection(_player.InputDir);
-        
         if (_player.InputDir.magnitude > 0.1f)
         {
             _player.ChangeState(_player.MoveState);
         }
+    }
+
+    public override void PhysicsUpdate()
+    {
+        AimDirection();
     }
 }
