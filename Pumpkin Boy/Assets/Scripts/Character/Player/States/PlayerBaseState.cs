@@ -29,11 +29,13 @@ public class PlayerBaseState : IState, IPlayerControlListener
     void RegisterListeners()
     {
         _player.PlayerInputs.Movement += Move;
+        _player.PlayerInputs.Attack += FireWeapon;
     }
 
     void DeregisterListeners()
     {
         _player.PlayerInputs.Movement -= Move;
+        _player.PlayerInputs.Attack -= FireWeapon;
     }
 
     public void Move(Vector2 movement)
@@ -44,7 +46,10 @@ public class PlayerBaseState : IState, IPlayerControlListener
 
     public void Interact() {}
 
-    public void FireWeapon() {}
+    public void FireWeapon()
+    {
+        MonoBehaviour.Instantiate(_player.BulletTrailPrefab, _player.GunPosition.position, _player.transform.rotation);
+    }
 
     public void OpenMenu() {}
 

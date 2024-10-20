@@ -25,7 +25,7 @@ public class PlayerMoveState : PlayerBaseState
     public override void PhysicsUpdate()
     {
         Vector3 movementInput = HandleMovement();
-        Movement(movementInput * 200f);
+        Movement(movementInput * _player.PlayerVariables.MovementSpeed);
         AimDirection();
     }
 

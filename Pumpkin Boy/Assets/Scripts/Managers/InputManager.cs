@@ -27,6 +27,7 @@ public class InputManager : Singleton<InputManager>
             _gameInputs = new GameInputs();
             #region Player Inputs
             _gameInputs.Player.Move.performed += (ctx) => playerControlChannel.HandleMovement(ctx.ReadValue<Vector2>());
+            _gameInputs.Player.FireWeapon.performed += (ctx) => playerControlChannel.HandleAttack();
             #endregion
         }
         _gameInputs.Enable();

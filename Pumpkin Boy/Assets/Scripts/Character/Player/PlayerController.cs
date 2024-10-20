@@ -12,6 +12,9 @@ public class PlayerController : Statemachine
     
     #region Components
     public Rigidbody Rb { get; private set; }
+    [field: SerializeField] public PlayerVariablesSO PlayerVariables { get; private set; }
+    [field:SerializeField] public Transform GunPosition { get; set; }
+    [field: SerializeField] public GameObject BulletTrailPrefab { get; set; }
     #endregion
     
     #region States
