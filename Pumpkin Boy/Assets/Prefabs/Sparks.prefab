@@ -4844,4 +4844,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428d79abb1bb5924f845387031f5ec0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sparkLife: 1.5
+  sparkLife: 0.75

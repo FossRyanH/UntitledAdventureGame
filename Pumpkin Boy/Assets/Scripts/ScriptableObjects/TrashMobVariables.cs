@@ -6,4 +6,5 @@ public class TrashMobVariables : ScriptableObject
 {
     [field: SerializeField] public float MoveSpeed { get; set; }
     [field: SerializeField] public float AttackCooldown { get; set; }
+    [field: SerializeField] public float AttackRange { get; private set; }
 }

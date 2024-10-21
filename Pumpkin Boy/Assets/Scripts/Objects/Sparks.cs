@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sparks : MonoBehaviour
 {
-    [SerializeField] private float sparkLife = 1.5f;
+    [SerializeField] private float sparkLife = 0.75f;
     
     // Start is called before the first frame update
     void Start()

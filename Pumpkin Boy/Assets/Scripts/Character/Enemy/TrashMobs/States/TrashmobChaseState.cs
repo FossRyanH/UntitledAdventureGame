@@ -20,6 +20,13 @@ public class TrashmobChaseState : TrashmobBaseState
         if (!_enemy.PlayerDetection)
         {
             _enemy.ChangeState(_enemy.IdleState);
+            return;
+        }
+
+        if (CheckTargetDistance() && !_enemy.IsAttacking)
+        {
+            _enemy.ChangeState(_enemy.AttackState);
+            return;
         }
     }
 

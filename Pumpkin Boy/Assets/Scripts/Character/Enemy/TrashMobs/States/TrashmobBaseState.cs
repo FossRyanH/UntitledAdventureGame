@@ -77,4 +77,9 @@ public class TrashmobBaseState : IState
     {
         _enemy.Rb.velocity = movement * Time.fixedDeltaTime;
     }
+
+    protected bool CheckTargetDistance()
+    {
+        return Vector3.Distance(_enemy.transform.position, _player.transform.position) <= _enemy.TrashMobVars.AttackRange;
+    }
 }

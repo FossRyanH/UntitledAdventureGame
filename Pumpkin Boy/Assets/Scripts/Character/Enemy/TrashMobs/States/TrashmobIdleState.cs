@@ -21,6 +21,7 @@ public class TrashmobIdleState : TrashmobBaseState
         if (_enemy.PlayerDetection)
         {
             _enemy.ChangeState(_enemy.ChaseState);
+            return;
         }
     }
 }

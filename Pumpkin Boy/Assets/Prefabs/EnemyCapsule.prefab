@@ -346,7 +346,39 @@ Transform:
   m_Children:
   - {fileID: 1561215819185125068}
   - {fileID: 5867498962674515566}
+  - {fileID: 505145968370659034}
   m_Father: {fileID: 7588993842012434966}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6166798875128870649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 505145968370659034}
+  m_Layer: 7
+  m_Name: ProjectilePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &505145968370659034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166798875128870649}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8115760476163168644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8788551804751237655
 GameObject:
@@ -361,9 +393,10 @@ GameObject:
   - component: {fileID: 3817332787266728186}
   - component: {fileID: 2064709753163051560}
   - component: {fileID: 3642539636962687947}
+  - component: {fileID: 5780036898072569910}
   m_Layer: 7
   m_Name: EnemyCapsule
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,3 +518,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &5780036898072569910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8788551804751237655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66cdeebf15677aa49a195b864d351f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TrashMobVars>k__BackingField: {fileID: 11400000, guid: eb1b8a1c87ed7cd499f5d5b8a4433c07, type: 2}
+  <ProjectilePoint>k__BackingField: {fileID: 505145968370659034}
+  <BulletPrefab>k__BackingField: {fileID: 7132692445127882927, guid: 433ababf211e0cb44b0f02a6425b9632, type: 3}
+  <DetectionRadius>k__BackingField: 30
+  <DetectionAngle>k__BackingField: 50

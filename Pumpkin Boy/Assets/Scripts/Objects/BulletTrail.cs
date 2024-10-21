@@ -9,7 +9,7 @@ public class BulletTrail : MonoBehaviour
     [SerializeField] private GameObject hitEffect;
     [SerializeField] private float _speed = 50f;
 
-    public event Action OnHit;
+    public static event Action TriggerHit;
     
     bool _isDestroyed = false;
 
@@ -23,11 +23,7 @@ public class BulletTrail : MonoBehaviour
     {
         if (_isDestroyed)
         {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            Destroy(this.gameObject, 3f);
+            Destroy(this.gameObject);
         }
     }
 
@@ -36,9 +32,9 @@ public class BulletTrail : MonoBehaviour
         if (!_isDestroyed)
         {
             Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(other.gameObject);
             _isDestroyed = true;
         }
+        TriggerHit?.Invoke();
 
         Debug.Log($"Hit {other.gameObject.name}");
     }

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: TrashmobVariables
   m_EditorClassIdentifier: 
   <MoveSpeed>k__BackingField: 150
-  <AttackCooldown>k__BackingField: 1.5
+  <AttackCooldown>k__BackingField: 1.25
+  <AttackRange>k__BackingField: 15
