@@ -740,6 +740,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5780036898072569910, guid: 0e95e7e60b14e6346a7441192133f0c6, type: 3}
+      propertyPath: <DetectionAngle>k__BackingField
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780036898072569910, guid: 0e95e7e60b14e6346a7441192133f0c6, type: 3}
+      propertyPath: <DetectionRadius>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7588993842012434966, guid: 0e95e7e60b14e6346a7441192133f0c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.21
