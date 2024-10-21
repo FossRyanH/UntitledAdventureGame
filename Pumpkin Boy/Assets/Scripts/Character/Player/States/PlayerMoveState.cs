@@ -33,6 +33,7 @@ public class PlayerMoveState : PlayerBaseState
     {
         Vector3 motion = new Vector3(_player.InputDir.x, 0, _player.InputDir.y);
 
+
         return motion;
     }
 }
