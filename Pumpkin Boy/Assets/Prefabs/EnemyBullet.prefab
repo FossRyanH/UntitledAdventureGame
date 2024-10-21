@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key2.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4589159027015726704, guid: 7c3524301c839ed47a37ffb2f9b6ab1e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6112947599038883321, guid: 7c3524301c839ed47a37ffb2f9b6ab1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -87,6 +91,10 @@ PrefabInstance:
     - target: {fileID: 7587227353479733477, guid: 7c3524301c839ed47a37ffb2f9b6ab1e, type: 3}
       propertyPath: m_Name
       value: EnemyBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587227353479733477, guid: 7c3524301c839ed47a37ffb2f9b6ab1e, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 8330907653258603410, guid: 7c3524301c839ed47a37ffb2f9b6ab1e, type: 3}
       propertyPath: hitEffect
