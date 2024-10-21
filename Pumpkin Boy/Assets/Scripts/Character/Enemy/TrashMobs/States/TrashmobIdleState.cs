@@ -11,11 +11,16 @@ public class TrashmobIdleState : TrashmobBaseState
     {
         base.Enter();
         Debug.Log($"{_enemy.gameObject.name} is Idling");
+        _enemy.PlayerDetection = false;
     }
 
     public override void Update()
     {
-        DetectPlayer();
-        FacePlayer();
+        base.Update();
+
+        if (_enemy.PlayerDetection)
+        {
+            _enemy.ChangeState(_enemy.ChaseState);
+        }
     }
 }

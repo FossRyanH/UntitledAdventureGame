@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TrashmobBaseState : IState
@@ -11,24 +12,43 @@ public class TrashmobBaseState : IState
         _enemy = enemy;
     }
 
-    public virtual void Enter() {}
+    public virtual void Enter() 
+    {
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     public virtual void PhysicsUpdate() {}
 
-    public virtual void Update() {}
+    public virtual void Update() 
+    {
+        _enemy.PlayerDetection = DetectPlayer();
+        DetectPlayer();
+    }
 
     public virtual void Exit() {}
 
     protected bool DetectPlayer()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(_enemy.transform.position, _enemy.DetectionRadius, _enemy.PlayerLayer);
+        Vector3 forward = _enemy.transform.forward;
+        float halfAngle = _enemy.DetectionAngle / 2f;
 
-        _player = GameObject.FindGameObjectWithTag("Player");
+        int numOfRays = 20;
 
-        foreach (Collider hitCollider in hitColliders)
+        Ray[] rays = new Ray[numOfRays];
+
+        for (int i = 0; i < numOfRays; i++)
         {
-            if (hitCollider.gameObject.CompareTag("Player"))
+            float angleOffSet = (i / (float)(numOfRays - 1)) * halfAngle;
+            Vector3 direction = Quaternion.Euler(0, angleOffSet, 0) * forward;
+            rays[i] = new Ray(_enemy.transform.position, direction);
+        }
+
+        foreach (Ray ray in rays)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, _enemy.DetectionRadius, _enemy.PlayerLayer))
             {
+                Debug.Log($"{hit.collider.gameObject.name} was hit!");
                 return true;
             }
         }
@@ -51,5 +71,10 @@ public class TrashmobBaseState : IState
                 _enemy.transform.rotation = Quaternion.Slerp(_enemy.transform.rotation, rotation, 10f * Time.fixedDeltaTime);
             }
         }
+    }
+
+    protected void Move(Vector3 movement)
+    {
+        _enemy.Rb.velocity = movement * Time.fixedDeltaTime;
     }
 }
