@@ -15,6 +15,7 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void Update()
     {
+        AimDirection();
         if (_player.InputDir.magnitude < 0.1f)
         {
             _player.ChangeState(_player.IdleState);
@@ -25,7 +26,6 @@ public class PlayerMoveState : PlayerBaseState
     {
         Vector3 movementInput = HandleMovement();
         Movement(movementInput * _player.PlayerVariables.MovementSpeed);
-        AimDirection();
     }
 
     Vector3 HandleMovement()
