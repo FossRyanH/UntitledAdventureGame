@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceb6a764e4e4be47804ec38a4ffbcc7, type: 3}
   m_Name: PlayerVariables
   m_EditorClassIdentifier: 
-  <MovementSpeed>k__BackingField: 175
-  <DashSpeed>k__BackingField: 450
+  <MovementSpeed>k__BackingField: 225
+  <DashSpeed>k__BackingField: 675

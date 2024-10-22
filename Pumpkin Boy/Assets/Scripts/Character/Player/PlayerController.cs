@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : Statemachine
@@ -27,6 +26,7 @@ public class PlayerController : Statemachine
     public Vector2 MouseDir { get; set; }
     #endregion
 
+    // Pass references to the states here.
     public PlayerController()
     {
         IdleState = new PlayerIdleState(this);

@@ -11,7 +11,6 @@ public class PlayerMoveState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log($"{_player.name} is moving on");
     }
 
     public override void Update()
@@ -32,6 +31,7 @@ public class PlayerMoveState : PlayerBaseState
     Vector3 HandleMovement()
     {
         Vector3 motion = new Vector3(_player.InputDir.x, 0, _player.InputDir.y);
+
 
         return motion;
     }
