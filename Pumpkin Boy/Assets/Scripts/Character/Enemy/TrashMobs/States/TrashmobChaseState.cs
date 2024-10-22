@@ -10,7 +10,6 @@ public class TrashmobChaseState : TrashmobBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log($"{_enemy.gameObject.name} is Chasing Player");
     }
 
     public override void Update()
@@ -23,7 +22,7 @@ public class TrashmobChaseState : TrashmobBaseState
             return;
         }
 
-        if (CheckTargetDistance() && !_enemy.IsAttacking)
+        if (CheckTargetDistance())
         {
             _enemy.ChangeState(_enemy.AttackState);
             return;
@@ -34,8 +33,28 @@ public class TrashmobChaseState : TrashmobBaseState
     {
         if (_enemy.PlayerDetection)
         {
-            Move(_enemy.transform.forward * _enemy.TrashMobVars.MoveSpeed);
+            ChasePlayer();
             FacePlayer();
         }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        _enemy.Agent.ResetPath();
+    }
+
+    void ChasePlayer()
+    {
+        if (_enemy.PlayerDetection)
+        {
+            if (_enemy.Agent.isOnNavMesh)
+            {
+                _enemy.Agent.destination = _player.transform.position;
+                Move(_enemy.transform.forward * _enemy.TrashMobVars.MoveSpeed);
+            }
+        }
+
+        _enemy.Agent.velocity = _enemy.Rb.velocity;
     }
 }

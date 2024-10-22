@@ -11,7 +11,6 @@ public class PlayerMoveState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log($"{_player.name} is moving on");
     }
 
     public override void Update()

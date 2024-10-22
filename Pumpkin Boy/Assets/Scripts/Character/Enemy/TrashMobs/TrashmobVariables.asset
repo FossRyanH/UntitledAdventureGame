@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb516e23911c48459a589c5f4009661, type: 3}
   m_Name: TrashmobVariables
   m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 150
-  <AttackCooldown>k__BackingField: 0.85
-  <AttackRange>k__BackingField: 10
+  <MoveSpeed>k__BackingField: 100
+  <AttackCooldown>k__BackingField: 1.2
+  <AttackRange>k__BackingField: 15

@@ -11,7 +11,6 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log($"{_player.name} is idling");
     }
 
     public override void Update()

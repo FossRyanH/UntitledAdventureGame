@@ -48,7 +48,6 @@ public class TrashmobBaseState : IState
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, _enemy.DetectionRadius, _enemy.PlayerLayer))
             {
-                Debug.Log($"{hit.collider.gameObject.name} was hit!");
                 return true;
             }
         }

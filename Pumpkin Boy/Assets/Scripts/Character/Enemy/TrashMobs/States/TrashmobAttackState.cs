@@ -4,6 +4,7 @@ using System.Collections;
 
 public class TrashmobAttackState : TrashmobBaseState
 {
+    float _timer;
     public TrashmobAttackState(TrashMobMachine enemy) : base(enemy)
     {
     }
@@ -12,11 +13,16 @@ public class TrashmobAttackState : TrashmobBaseState
     {
         base.Enter();
         _enemy.IsAttacking = true;
-        _enemy.StartCoroutine(AttackPlayer());
+        _timer = _enemy.TrashMobVars.AttackCooldown;        
     }
 
     public override void PhysicsUpdate()
     {
+        if (_timer <= 0)
+        {
+            _enemy.StartCoroutine(AttackPlayer());
+        }
+        
         if (_enemy.PlayerDetection && CheckTargetDistance())
         {
             FacePlayer();
@@ -26,6 +32,9 @@ public class TrashmobAttackState : TrashmobBaseState
     public override void Update()
     {
         base.Update();
+
+        _timer -= Time.fixedDeltaTime;
+
         if (!CheckTargetDistance())
         {
             _enemy.ChangeState(_enemy.IdleState);
@@ -41,8 +50,8 @@ public class TrashmobAttackState : TrashmobBaseState
 
     IEnumerator AttackPlayer()
     {
-        yield return new WaitForSeconds(_enemy.TrashMobVars.AttackCooldown);
         MonoBehaviour.Instantiate(_enemy.BulletPrefab, _enemy.ProjectilePoint.position, _enemy.transform.rotation);
-        _enemy.ChangeState(_enemy.IdleState);
+        _timer = _enemy.TrashMobVars.AttackCooldown;
+        yield return null;
     }
 }

@@ -45,6 +45,7 @@ public class Health : MonoBehaviour, IDamageable
         if (CurrentHealth <= 0)
         {
             CharacterDeath?.Invoke();
+            Destroy(gameObject);
         }
     }
 }

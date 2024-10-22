@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.AI;
 
 public class TrashMobMachine : Statemachine
 {
@@ -13,6 +14,7 @@ public class TrashMobMachine : Statemachine
     #region Components
     [field: SerializeField] public TrashMobVariables TrashMobVars { get; set; }
     public Rigidbody Rb { get; private set; }
+    public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public Transform ProjectilePoint { get; private set; }
     [field: SerializeField] public GameObject BulletPrefab { get; private set; }
     #endregion
@@ -39,6 +41,7 @@ public class TrashMobMachine : Statemachine
     {
         PlayerLayer = LayerMask.GetMask("Player");
         Rb = GetComponent<Rigidbody>();
+        Agent = GetComponent<NavMeshAgent>();
         Initialize(IdleState);
     }
 }

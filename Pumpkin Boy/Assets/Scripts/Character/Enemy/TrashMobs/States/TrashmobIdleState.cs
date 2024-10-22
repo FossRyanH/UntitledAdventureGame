@@ -10,8 +10,6 @@ public class TrashmobIdleState : TrashmobBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log($"{_enemy.gameObject.name} is Idling");
-        _enemy.PlayerDetection = false;
     }
 
     public override void Update()
